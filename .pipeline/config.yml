@@ -32,11 +32,12 @@ stages:
 #      - alias: 'mySystemAlias'
 #        credentialId: 'mySystemCredentialsId'
 
-#  Release:
-#    cfTargets:
-#      - org: 'myOrg'
-#        space: 'mySpace'
-#        apiEndpoint: 'https://'
-#        appName: 'myAppName'
-#        manifest: 'manifest.yml'
-#        credentialsId: 'myDeploymentCredentialsId'
+Release:
+  cfTargets:
+    - org: '94793145-fa9c-4168-a26a-133e62cc8f36'
+      space: 'DEVSpace'
+      apiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
+      appName: 'tmsproject'
+      manifest: 'manifest.yml'
+      credentialsId: 'deploy-to-cf'
+      tmsUpload: false
