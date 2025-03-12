@@ -14,30 +14,13 @@
 general:
   inferBuildTool: true
 
-### Step-specific configuration
-steps:
-  mavenExecute:
-    dockerImage: devxci/mbtci:1.0.14
-
-  artifactPrepareVersion:
-    versioningType: cloud_noTag
-
 ### Stage-specific configuration
-stages:
-  'Confirm':
-    manualConfirmation: false
-
-#  Integration:
-#    credentials:
-#      - alias: 'mySystemAlias'
-#        credentialId: 'mySystemCredentialsId'
-
-Release:
-  cfTargets:
-    - org: '94793145-fa9c-4168-a26a-133e62cc8f36'
-      space: 'DEVSpace'
-      apiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
-      appName: 'tmsproject'
-      manifest: 'manifest.yml'
+steps:
+  mtaBuild:
+    buildTarget: 'CF'
+  cloudFoundryDeploy:
+    cloudFoundry:
       credentialsId: 'deploy-to-cf'
-      tmsUpload: false
+      apiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
+      org: '94793145-fa9c-4168-a26a-133e62cc8f36'
+      space: 'DEVSpace'
