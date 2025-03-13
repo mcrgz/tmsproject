@@ -25,11 +25,11 @@ modules:
           srv-url: ${default-url}
     requires:
       - name: HDI_MAVIPOS_DV
-      - name: xsuaa-svc
+      - name: xsuaadev-srv
       - name: connectivitydev-srv
       - name: destinationdev-srv
 
-  - name: HDI_MAVIPOS_DV-deployer
+  - name: tmsproject-db-deployer
     type: hdb
     path: gen/db
     parameters:
@@ -43,8 +43,8 @@ resources:
     parameters:
       service: hana
       service-plan: hdi-shared
-  - name: xsuaa-svc
-    type: org.cloudfoundry.existing-service
+  - name: xsuaadev-srv
+    type: org.cloudfoundry.managed-service
     parameters:
       service: xsuaa
       service-plan: application
@@ -58,7 +58,7 @@ resources:
       service: connectivity
       service-plan: lite
   - name: destinationdev-srv
-    type: org.cloudfoundry.existing-service
+    type: org.cloudfoundry.managed-service
     parameters:
       service: destination
       service-plan: lite
