@@ -12,15 +12,46 @@
 
 ### General project setup
 general:
-  inferBuildTool: true
+  BuildTool: "mta"
 
-### Step-specific configuration
+### Stage-specific configuration
+stages:
+  Build:
+    mavenExecuteStaticCodeChecks: false
+    npmExecuteLint: true
+
+  Additional Unit Test:
+    npmExecuteScripts: false
+    karmaExecuteTests: false
+
+  Acceptance:
+    cloudFoundryDeploy: false
+    cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com"
+    cfOrg: "94793145-fa9c-4168-a26a-133e62cc8f36"
+    cfSpace: "DEVSpace"
+    cfAppName: "tmsproject"
+    cfCredentialsId: "deploy-to-cf"
+    iuVeri5ExecuteTests: false
+
+  Release:
+    cloudFoundryDeploy: false
+    cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com"
+    cfOrg: "94793145-fa9c-4168-a26a-133e62cc8f36"
+    cfSpace: "DEVSpace"
+    cfAppName: "tmsproject"
+    cfCredentialsId: "deploy-to-cf"
+    tmsUpload: true
+
 steps:
-  mtaBuild:
-    buildTarget: 'CF'
+  artifactPrepareVersion:
+    versioningType: "cloud_noTag"
+
+  npmExecuteLint:
+    failOnError: true
+
   cloudFoundryDeploy:
-    cloudFoundry:
-      credentialsId: 'deploy-to-cf'
-      apiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
-      org: '94793145-fa9c-4168-a26a-133e62cc8f36'
-      space: 'DEVSpace'
+    mtaDeployParameters: "-f --version-rule ALL"
+  
+  tmsUpload:
+    nodeName: "qa"
+    credentialsID: "cred.dev"
