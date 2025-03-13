@@ -14,7 +14,7 @@
 general:
   inferBuildTool: true
 
-### Stage-specific configuration
+### Step-specific configuration
 steps:
   mtaBuild:
     buildTarget: 'CF'

@@ -1,0 +1,14 @@
+{
+  "APP_DBAVIEW_APLICACIONES": {
+    "target": {
+      "object": "APLICACIONES",
+      "schema": "MAVIPOS_DV"
+    }
+  },
+  "APP_DBAVIEW_APLICACIONESPROGRAMAS": {
+    "target": {
+      "object": "APLICACIONESPROGRAMAS",
+      "schema": "MAVIPOS_DV"
+    }
+  }
+}

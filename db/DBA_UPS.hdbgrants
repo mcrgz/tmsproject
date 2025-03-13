@@ -1,0 +1,20 @@
+{
+	"ServiceName_1": {
+		"application_user": {
+			"schema_privileges": [
+				{
+					"privileges": [
+						"SELECT"
+					]
+				}
+			],
+			"schema_roles": [
+				{
+					"roles": [
+						"HDI_MAVIPOS_DEV"
+					]
+				}
+			]
+		}
+	}
+}
